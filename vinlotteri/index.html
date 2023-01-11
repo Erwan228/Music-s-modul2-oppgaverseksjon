@@ -13,13 +13,28 @@
     </style>
 </head>
 <body>
+<div id="screen"></div>
 
 </body>
 <script>
     //Model
+    inputName = null;
+    employees = [];
 
     //View
+    updateView();
+    function updateView(){
+        document.getElementById('screen').innerHTML = /*html*/ `
+        
+        <p>Legg til ansatte i lotteriet</p>
+        <input value="" type="text" onchange="inputName = this"> <button onclick="addName()">Legg til</button>
+        `
+    }
 
     //Controller
+    function addName(){
+        employees.push(inputName);
+        
+    }
 </script>
 </html>
