@@ -25,16 +25,24 @@
     updateView();
     function updateView(){
         document.getElementById('screen').innerHTML = /*html*/ `
-        
+        <div id="displayArea"></div> <!--Område for å vise frem listen av ansatte-->
+        <hr>
         <p>Legg til ansatte i lotteriet</p>
-        <input value="" type="text" onchange="inputName = this"> <button onclick="addName()">Legg til</button>
+        <input value="" type="text" onchange="inputName = this.value"> <button onclick="addName()">Legg til</button>
         `
+        const displayArea = document.getElementById('displayArea'); /*lagrer id displayarea i variabel*/
+        /*for loops for å hente ut ansatte fra listen*/
+        for(let index = 0; index <= employees.length-1; index++){
+            displayArea.innerHTML += /*html*/ `
+            <li>${employees[index]}</li>
+            `
+        }
     }
 
     //Controller
-    function addName(){
+    function addName(){ /*Tar infoen i tekstfeltet og legger det til i lista*/
         employees.push(inputName);
-        
+        updateView();
     }
 </script>
 </html>
