@@ -12,7 +12,10 @@
             background-color: rgb(254, 221, 170);
         }
 
-        ;
+        #vinnere {
+            font-size: large;
+            color: limegreen;
+        }
     </style>
 </head>
 
@@ -52,10 +55,26 @@
         }
     }
 
+    function drawnView() {
+        document.getElementById('screen').innerHTML = /*html*/ `
+        <h2>Vinnere</h2>
+        <p id="vinnere">
+            </p>
+            <hr>
+            <button onclick="updateView()">Ny trekning</button>
+        `
+        for (let i = 0; i < drawnEmployees; i++)
+            document.getElementById('vinnere').innerHTML += /*html*/ `
+        <li>${drawnEmployees[i]}</li>
+        `
+    }
+
 
     //Controller
     function addName() { /*Tar infoen i tekstfeltet og legger det til i lista*/
+        if (inputName === null) return;
         employees.push(inputName);
+        inputName = null;
         updateView();
     }
 
@@ -65,14 +84,22 @@
     }
 
     function draw() {
-        if (numberOfWinners === 0) return;
-        let employeesToDraw = employees;
-        for (let drawn = 1; drawn > numberOfWinners; drawn++) {
-            let randomNumber = Math.floor(Math.random() * numberOfWinners);
-            drawnEmployees.push(employeesToDraw[randomNumber]);
-            employeesToDraw.slice(randomNumber, 1);
+        if (numberOfWinners <= 0) return;
+
+        if (numberOfWinners > employees.length) {
+            alert('Du har satt inn for mange vinnere i forhold til deltakere.')
+            return;
         }
-        drawnView();
+        else {
+            let employeesToDraw = employees;
+            for (let drawn = 0; drawn < numberOfWinners; drawn++) {
+                let randomNumber = Math.floor(Math.random() * employeesToDraw.length);
+                drawnEmployees.push(employeesToDraw[randomNumber]);
+                employeesToDraw.splice(randomNumber, 1);
+            }
+            drawnView();
+        }
+        console.log(drawnEmployees)
     }
 
 
