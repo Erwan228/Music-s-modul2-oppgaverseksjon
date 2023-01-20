@@ -48,7 +48,7 @@
         `
         const displayArea = document.getElementById('displayArea'); /*lagrer id displayarea i variabel*/
         /*for loops for å hente ut ansatte fra listen*/
-        for (let index = 0; index <= employees.length - 1; index++) {
+        for (let index = 0; index < employees.length; index++) {
             displayArea.innerHTML += /*html*/ `
             <li>${employees[index]} <button onclick="deleteName(${index})">×</button> </li>
             `
@@ -84,6 +84,10 @@
     }
 
     function draw() {
+        console.log(employees, "før")
+        let employeesToDraw = [];
+        employeesToDraw.push(employees);
+
         if (numberOfWinners <= 0) return;
 
         if (numberOfWinners > employees.length) {
@@ -91,11 +95,12 @@
             return;
         }
         else {
-            let employeesToDraw = employees;
             for (let drawn = 0; drawn < numberOfWinners; drawn++) {
                 let randomNumber = Math.floor(Math.random() * employeesToDraw.length);
                 drawnEmployees.push(employeesToDraw[randomNumber]);
                 employeesToDraw.splice(randomNumber, 1);
+                console.log(employees, employeesToDraw, "etter")
+
             }
             drawnView();
         }
