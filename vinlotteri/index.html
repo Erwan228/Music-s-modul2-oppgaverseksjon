@@ -86,7 +86,9 @@
     function draw() {
         console.log(employees, "før")
         let employeesToDraw = [];
-        employeesToDraw.push(employees);
+        for (let i = 0; i < employees.length; i++) {
+            employeesToDraw.push(employees[i]);
+        }
 
         if (numberOfWinners <= 0) return;
 
