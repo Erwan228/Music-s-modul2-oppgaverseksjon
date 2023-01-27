@@ -28,7 +28,7 @@
     updateView();
     function updateView() {
         if (model.state == 'navnListe') updateNavnListeView();
-        if (model.state == 'vinnere') updateTrukketView();
+        if (model.state == 'vinnere') updateVinnereView();
         //         document.getElementById('screen').innerHTML = /*html*/ `
         //         <h1>Vinlotteriside</h1>
         //         <h2>Liste over ansatte i trekningen</h2>
@@ -51,19 +51,19 @@
         //         }
     }
 
-    function drawnView() {
-        document.getElementById('screen').innerHTML = /*html*/ `
-        <h2>Vinnere</h2>
-        <p id="vinnere">
-            </p>
-            <hr>
-            <button onclick="updateView()">Ny trekning</button>
-        `
-        for (let i = 0; i < drawnEmployees.length; i++)
-            document.getElementById('vinnere').innerHTML += /*html*/ `
-        <li>${drawnEmployees[i]}</li>
-        `
-    }
+    // function drawnView() {
+    //     document.getElementById('screen').innerHTML = /*html*/ `
+    //     <h2>Vinnere</h2>
+    //     <p id="vinnere">
+    //         </p>
+    //         <hr>
+    //         <button onclick="updateView()">Ny trekning</button>
+    //     `
+    //     for (let i = 0; i < drawnEmployees.length; i++)
+    //         document.getElementById('vinnere').innerHTML += /*html*/ `
+    //     <li>${drawnEmployees[i]}</li>
+    //     `
+    // }
 
 
     //Controller
