@@ -5,7 +5,7 @@ model = {
         numberOfWinners: 0,
     },
     data:{
-        employees,
+        employees : [],
     },
     drawnEmployees: [],
 }
