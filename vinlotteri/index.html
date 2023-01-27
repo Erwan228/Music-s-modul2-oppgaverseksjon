@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="/vinlotteri/skaal.png">
     <script src="js/model.js"></script>
     <script src="js/navnListeView.js"></script>
+    <script src="js/navnListeController.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     updateView();
     function updateView() {
         if (model.state == 'navnListe') updateNavnListeView();
-        if (model.state == 'trukket') updateTrukketView();
+        if (model.state == 'vinnere') updateTrukketView();
         //         document.getElementById('screen').innerHTML = /*html*/ `
         //         <h1>Vinlotteriside</h1>
         //         <h2>Liste over ansatte i trekningen</h2>
@@ -66,44 +67,44 @@
 
 
     //Controller
-    function addName() { /*Tar infoen i tekstfeltet og legger det til i lista*/
-        if (inputName === null) return;
-        employees.push(inputName);
-        inputName = null;
-        updateView();
-    }
+    // function addName() { /*Tar infoen i tekstfeltet og legger det til i lista*/
+    //     if (inputName === null) return;
+    //     employees.push(inputName);
+    //     inputName = null;
+    //     updateView();
+    // }
 
-    function deleteName(i) {
-        employees.splice(i, 1);
-        updateView();
-    }
+    // function deleteName(i) {
+    //     employees.splice(i, 1);
+    //     updateView();
+    // }
 
-    function draw() {
-        console.log(employees, "før")
-        let employeesToDraw = [];
-        for (let i = 0; i < employees.length; i++) {
-            employeesToDraw.push(employees[i]);
-        }
+    // function draw() {
+    //     console.log(employees, "før")
+    //     let employeesToDraw = [];
+    //     for (let i = 0; i < employees.length; i++) {
+    //         employeesToDraw.push(employees[i]);
+    //     }
 
-        if (numberOfWinners <= 0) return;
+    //     if (numberOfWinners <= 0) return;
 
-        if (numberOfWinners > employees.length) {
-            alert('Du har satt inn for mange vinnere i forhold til deltakere.')
-            return;
-        }
-        else {
-            for (let drawn = 0; drawn < numberOfWinners; drawn++) {
-                let randomNumber = Math.floor(Math.random() * employeesToDraw.length);
-                drawnEmployees.push(employeesToDraw[randomNumber]);
-                employeesToDraw.splice(randomNumber, 1);
-                console.log(employees, employeesToDraw, "etter")
+    //     if (numberOfWinners > employees.length) {
+    //         alert('Du har satt inn for mange vinnere i forhold til deltakere.')
+    //         return;
+    //     }
+    //     else {
+    //         for (let drawn = 0; drawn < numberOfWinners; drawn++) {
+    //             let randomNumber = Math.floor(Math.random() * employeesToDraw.length);
+    //             drawnEmployees.push(employeesToDraw[randomNumber]);
+    //             employeesToDraw.splice(randomNumber, 1);
+    //             console.log(employees, employeesToDraw, "etter")
 
-            }
-            drawnView();
-        }
-        console.log(drawnEmployees)
-        drawnEmployees = [];
-    }
+    //         }
+    //         drawnView();
+    //     }
+    //     console.log(drawnEmployees)
+    //     drawnEmployees = [];
+    // }
 
 
 

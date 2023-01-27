@@ -15,7 +15,7 @@ function updateNavnListeView(){
                  
                  /*for loops for å hente ut ansatte fra listen*/
                  for (let index = 0; index < model.data.employees.length; index++) {
-                     documen.getElementById('displayArea').innerHTML += /*html*/ `
+                     document.getElementById('displayArea').innerHTML += /*html*/ `
                      <li>${model.data.employees[index]} <button onclick="deleteName(${index})">×</button> </li>
                      `
                  }
