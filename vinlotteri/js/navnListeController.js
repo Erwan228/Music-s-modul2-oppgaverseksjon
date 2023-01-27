@@ -31,7 +31,7 @@ function addName() { /*Tar infoen i tekstfeltet og legger det til i lista*/
                 console.log(model.data.employees, employeesToDraw, "etter")
 
             }
-model.state = 'trukket';
+model.state = 'vinnere';
 updateView();
         }
         console.log(model.drawnEmployees)

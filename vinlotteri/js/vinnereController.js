@@ -1,4 +1,4 @@
 function back(){
-    model.state = 'vinnere';
-    updateVinnereView();
+    model.state = 'navnListe';
+    updateView();
 }
